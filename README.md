@@ -50,10 +50,10 @@ in today's fast-paced and time-conscious world.
 ## Admin Priviledges :
 ```
 ● Get all users and display them.
-● Should be able to get a single user timesheet.
-● Should be able to update user timestamp.
-● Be able to delete a single user timestamp.
-● Should be able to scan QRCode (Post to database)
+● Get a single user timesheet.
+● Update user timestamp.
+● Delete a single user timestamp.
+● Scan QRCode (Post to database)
 ```
 
 ## User Priviledges :
