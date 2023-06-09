@@ -1,0 +1,57 @@
+<template>
+    <div class="home">
+        <h1>Welcome Back !</h1>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'HomeComponent',
+
+    data() {
+        return {
+            
+        };
+    },
+
+    mounted() {
+        
+    },
+
+    methods: {
+        
+    },
+};
+</script>
+
+<style scoped>
+.home {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content:left;
+    align-items: left;
+    min-height: 100vh;
+    margin-top: 80px;
+    background-image: url("https://i.postimg.cc/zBrgBmqZ/eliott-reyna-j-CEp-N62o-WL4-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Poppins, sans-serif;
+}
+h1{
+    position: absolute;
+    top: 68%;
+    left: 80%;
+    width: 80%;
+    transform: translate(-96%, -30%);
+    -ms-transform: translate(-96%, -30%);
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 6.8rem;
+    text-align: left;
+    text-shadow: 5px 5px 7px rgba(0, 0, 0, 0.6);
+}
+</style>

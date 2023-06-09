@@ -1,14 +1,21 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <NavbarComponent/>
   <router-view/>
 </template>
 
+<script>
+import NavbarComponent from '@/components/NavbarComponent.vue';
+export default {
+    name: 'App',
+    components: {NavbarComponent},
+};
+</script>
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

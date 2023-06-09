@@ -1,0 +1,145 @@
+<template>
+    <div class="login-section">
+        <h1>Login</h1>
+        <form class="login-form">
+            <br>
+            <div class="group email">
+                <label for="email">E-mail Address</label>
+                <br>
+                <input type="text" name="email" id="email" required>
+            </div>
+            <div class="group password">
+                <label for="password">Password</label>
+                <br>
+                <input type="text" name="password" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <br>
+            <router-link to="/register"><a href="">Don't have an account yet? <span>Sign up here .</span></a></router-link>
+        </form>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'LoginView',
+
+    data() {
+        return {
+            
+        };
+    },
+
+    mounted() {
+        
+    },
+
+    methods: {
+        
+    },
+};
+</script>
+
+<style scoped>
+.login-section{
+    background-color: #000;
+    min-height: 100vh;
+    margin-bottom: -100px;
+    margin-top: 90px;
+}
+.login-form {
+    min-width: 300px;
+    max-width: 700px;
+    margin-top: 4rem;
+    background-color: #00000000;
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 6%;
+    border-radius: 2rem;
+}
+h1 {
+    padding-top: 30px;
+    /* padding: 0 0 10px; */
+    text-align: center;
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+}
+.login-form p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Animated Input */
+
+.group{
+    position: relative;
+}
+label{
+    position: absolute;
+    left: 5%;
+    top: -20%;
+    padding: 0.4rem;
+    pointer-events: none;
+    transform: translateY(1.8rem);
+    transition: 0.6s ease;
+    background-color: black;
+}
+input {
+    width: 350px;
+    font-family: Poppins, sans-serif;
+    margin-bottom: 20px;
+    padding: 2rem;
+    background-color: transparent;
+    border: 2px solid green;
+    border-radius: 10px;
+    outline: none;
+    height: 40px;
+    color: white;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+}
+input:valid ~ label, input:focus ~ label{
+    transform: translateY(-50px);
+    font-size: 0.6rem;
+}
+
+/* End of animated input */
+
+.password{
+    margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: rgb(174, 188, 176);
+    transition: 0.35s;
+}
+span{
+    color: green;
+}
+span:hover{
+    color: green;
+    text-decoration: 2px underline solid green;
+}
+button {
+    width: 100%;
+    border-radius: 10px !important;
+    padding: 0.7rem 1.9rem;
+    margin: 0 0 10px;
+    font-size: 1rem;
+    background-color: green;
+    color: #ffffff;
+}
+button:hover{
+    /* border: 2px solid green; */
+    color: rgb(229, 229, 229);
+    background-color: rgb(5, 162, 5);
+    transition: 0.5s;
+}
+</style>
