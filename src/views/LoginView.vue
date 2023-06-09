@@ -116,10 +116,6 @@ a{
     text-decoration: none;
     color: white;
 }
-a:hover{
-    color: rgb(174, 188, 176);
-    transition: 0.35s;
-}
 span{
     color: green;
 }

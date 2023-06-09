@@ -41,6 +41,11 @@
     border: 2px solid green;
     color: white;
 }
+.btn1:hover{
+    color: rgb(229, 229, 229);
+    background-color: rgb(5, 162, 5);
+    transition: 0.5s;
+}
 .btn2{
     border: 2px solid green;
     color: white;

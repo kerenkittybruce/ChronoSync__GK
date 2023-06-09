@@ -96,6 +96,7 @@ h1{
     text-align: center;
     color: white;
     font-size: 80px;
+    font-weight: bold;
 }
 .loginbox p{
     margin: 0;
