@@ -31,8 +31,8 @@ capabilities. It can adapt to a variety of timekeeping methods, whether they inv
 card systems, biometric scanners, or digital platforms. This versatility ensures a smooth 
 implementation process and minimal disruptions during the transition to the new system. The system also 
 offers robust reporting and analytics functionalities. Organisations can generate customised reports to 
-gain valuable insights into employee attendance patterns, time utilisation, and productivity trends. Armed 
-with these data-driven insights, decision-makers can optimise resource allocation, identify areas for 
+gain valuable insights into employee attendance patterns, time utilisation, and productivity trends. 
+Armed with these data-driven insights, decision-makers can optimise resource allocation, identify areas for 
 improvement, and make informed decisions to enhance operational efficiency.
 
 Data privacy and security are paramount within the Life Choices - ChronoSync Clocking System. It
@@ -43,8 +43,8 @@ organisations with peace of mind when it comes to the handling of employee data.
 The Life Choices - ChronoSync Clocking System project represents a significant advancement in
 time management for organisations. By leveraging its features and functionalities, businesses can streamline 
 operations, increase productivity, and foster a culture of punctuality and accountability. This project aims 
-to empower organisations to unlock the full potential of synchronised timekeeping, enabling them to thrive in 
-today's fast-paced and time-conscious world.
+to empower organisations to unlock the full potential of synchronised timekeeping, enabling them to thrive 
+in today's fast-paced and time-conscious world.
 ```
 
 ## Admin Priviledges :
