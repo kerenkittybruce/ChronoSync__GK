@@ -13,7 +13,7 @@
     </div>
     <div class="offcanvas offcanvas-end bg-black" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="" height="37" class="offcanvas-title my-3 mx-2" id="offcanvasNavbarLabel">
+        <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="" height="27" class="offcanvas-title my-3 mx-2" id="offcanvasNavbarLabel">
         <button type="button" class="btn-close text-reset mx-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -36,10 +36,11 @@
     }
 </script>
 <style scoped>
+
 .btn1{
     background-color: green;
     border: 2px solid green;
-    color: white;
+    color: whitesmoke;
 }
 .btn1:hover{
     color: rgb(229, 229, 229);
@@ -48,19 +49,29 @@
 }
 .btn2{
     border: 2px solid green;
-    color: white;
+    color: whitesmoke;
 }
 .btn-close{
-    background-color: white;
+    background-color: whitesmoke;
+}
+
+.offcanvas{
+  max-width: 60vw !important;
 }
 .offcanvas-body{
     text-align: left;
 }
 .nav-link{
-    color: white;
+    color: whitesmoke;
 }
 .nav-link:hover{
     color: rgb(12, 173, 12) !important;
     transition: 0.5s;
+}
+
+@media screen and (width < 550px) {
+.navbar>.container-fluid{
+    justify-content: space-around;
+}
 }
 </style>

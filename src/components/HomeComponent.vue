@@ -26,7 +26,7 @@ export default {
 
 <style scoped>
 .home {
-    position: fixed;
+    position: scroll;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -48,9 +48,9 @@ h1{
     width: 80%;
     transform: translate(-96%, -30%);
     -ms-transform: translate(-96%, -30%);
-    color: #ffffff;
+    color: whitesmoke;
     font-weight: bolder;
-    font-size: 6.8rem;
+    font-size: clamp(3.6rem, 10vw, 6.8rem);
     text-align: left;
     text-shadow: 5px 5px 7px rgba(0, 0, 0, 0.6);
 }

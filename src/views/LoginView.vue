@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .login-section{
-    background-color: #000;
+    background-color: black;
     min-height: 100vh;
     margin-bottom: -100px;
     margin-top: 90px;
@@ -51,8 +51,7 @@ export default {
     min-width: 300px;
     max-width: 700px;
     margin-top: 4rem;
-    background-color: #00000000;
-    color: white;
+    color: whitesmoke;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -65,8 +64,8 @@ h1 {
     padding-top: 30px;
     /* padding: 0 0 10px; */
     text-align: center;
-    color: white;
-    font-size: 80px;
+    color: whitesmoke;
+    font-size: clamp(3.6rem, 10vw, 6rem);
     font-weight: bold;
 }
 .login-form p {
@@ -90,16 +89,18 @@ label{
     background-color: black;
 }
 input {
-    width: 350px;
+    width: 100%;
     font-family: Poppins, sans-serif;
     margin-bottom: 20px;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1.1rem;
     background-color: transparent;
     border: 2px solid green;
     border-radius: 10px;
     outline: none;
     height: 40px;
-    color: white;
+    color: whitesmoke;
     transition: border 150ms cubic-bezier(0.4,0,0.2,1);
 }
 input:valid ~ label, input:focus ~ label{
@@ -114,7 +115,7 @@ input:valid ~ label, input:focus ~ label{
 }
 a{
     text-decoration: none;
-    color: white;
+    color: whitesmoke;
 }
 span{
     color: green;
@@ -130,12 +131,18 @@ button {
     margin: 0 0 10px;
     font-size: 1rem;
     background-color: green;
-    color: #ffffff;
+    color: whitesmoke;
 }
 button:hover{
     /* border: 2px solid green; */
     color: rgb(229, 229, 229);
     background-color: rgb(5, 162, 5);
     transition: 0.5s;
+}
+
+@media screen and (width < 550px) {
+    h1{
+        padding-top: 70px; 
+    }  
 }
 </style>
