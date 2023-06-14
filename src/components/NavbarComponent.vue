@@ -22,7 +22,8 @@
             <a class="nav-link active" aria-current="page" href="#">Login History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <!--  -->
+            <router-link to="/admin"><a class="nav-link" aria-current="page"  href="#admin">Admin</a></router-link>
           </li>
         </ul>
       </div>
@@ -63,10 +64,12 @@
 }
 .nav-link{
     color: whitesmoke;
+    text-decoration: none;
 }
 .nav-link:hover{
     color: rgb(12, 173, 12) !important;
     transition: 0.5s;
+    text-decoration: none;
 }
 
 @media screen and (width < 550px) {
