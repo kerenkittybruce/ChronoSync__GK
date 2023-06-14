@@ -6,14 +6,14 @@
                     <div class="logo col-md-3 mx-auto">
                         <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="" height="60">
                     </div>
-                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <div class="column col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h5 class="heading mb-4">Life Choices – ChronoSync</h5>
                         <hr class="mb-4">
                         <p class="quote">❝ Some people dream of success , while other people get up every morning and make it happen . ❞
                         </p>
                         <p class="quote"> – Wayne Huizenga</p>
                     </div>
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <div class="column col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h5 class="heading mb-4">
                             Keep Showing Up !
                         </h5>

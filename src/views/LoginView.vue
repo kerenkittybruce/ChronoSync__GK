@@ -1,7 +1,7 @@
 <template>
     <div class="login-section">
         <h1>Login</h1>
-        <form class="login-form">
+        <form @submit.prevent="loginUser" class="login-form" method="POST">
             <br>
             <div class="group email">
                 <label for="email">E-mail Address</label>
@@ -13,7 +13,7 @@
                 <br>
                 <input type="text" name="password" id="password" required>
             </div>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success" id="logs" v-on:click="toggle">Submit</button>
             <br>
             <router-link to="/register"><a href="">Don't have an account yet? <span>Sign up here .</span></a></router-link>
         </form>
@@ -21,21 +21,35 @@
 </template>
 
 <script>
+import 'animate.css';
+
 export default {
     name: 'LoginView',
 
     data() {
         return {
-            
+            userEmail: "",
+            userPass: "",
         };
     },
 
     mounted() {
-        
+
     },
 
     methods: {
-        
+        async loginUser () {
+            const payload = {
+                userEmail: this.userEmail,
+                userPass: this.userPass
+            };
+            await this.$store.dispatch("loginUser", payload)
+        },
+
+        toggle: function () {
+            // document.querySelector(#icon).style.display = "inline-block";
+            document.querySelector("logs").style.display = "none";
+        }
     },
 };
 </script>
@@ -62,7 +76,6 @@ export default {
 }
 h1 {
     padding-top: 30px;
-    /* padding: 0 0 10px; */
     text-align: center;
     color: whitesmoke;
     font-size: clamp(3.6rem, 10vw, 6rem);
