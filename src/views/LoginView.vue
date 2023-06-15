@@ -6,14 +6,15 @@
             <div class="group email">
                 <label for="email">E-mail Address</label>
                 <br>
-                <input type="text" name="email" id="email" required>
+                <input type="text" v-model="email" name="email" id="email" required>
             </div>
             <div class="group password">
                 <label for="password">Password</label>
                 <br>
-                <input type="text" name="password" id="password" required>
+                <input type="password" v-model="password" name="password" id="password" required>
             </div>
-            <button type="submit" class="btn btn-success" id="logs" v-on:click="toggle">Submit</button>
+            <!-- <button type="submit" class="btn btn-success" id="logs" v-on:click="toggle"><span id="logs">Submit</span><i class="fa fa-spinner fa-spin" id="icon"></i></button> -->
+            <button type="submit" class="btn btn-success" v-on:click="toggle"><span id="logs">Submit</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
             <br>
             <router-link to="/register"><a href="">Don't have an account yet? <span>Sign up here .</span></a></router-link>
         </form>
@@ -28,8 +29,8 @@ export default {
 
     data() {
         return {
-            userEmail: "",
-            userPass: "",
+            email: "",
+            password: "",
         };
     },
 
@@ -40,21 +41,28 @@ export default {
     methods: {
         async loginUser () {
             const payload = {
-                userEmail: this.userEmail,
-                userPass: this.userPass
+                email: this.email,
+                password: this.password
             };
             await this.$store.dispatch("loginUser", payload)
         },
 
         toggle: function () {
-            // document.querySelector(#icon).style.display = "inline-block";
-            document.querySelector("logs").style.display = "none";
+            document.querySelector("#icon").style.display = "inline-block";
+            document.querySelector("#logs").style.display = "none";
         }
     },
 };
 </script>
 
 <style scoped>
+
+I{
+    display: none;
+}
+#logs{
+    color: white;
+}
 .login-section{
     background-color: black;
     min-height: 100vh;

@@ -60,7 +60,7 @@ export default createStore({
     // Log In Existing User
     
     async loginUser(context, payload) {
-      fetch("https://spring-render-clocking-system.onrender.com/login", {
+      fetch("https://spring-render-clocking-system.onrender.com/users/login", {
       method: "POST",
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify(payload),

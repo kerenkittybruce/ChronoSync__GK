@@ -22,8 +22,7 @@
             <a class="nav-link active" aria-current="page" href="#">Login History</a>
           </li>
           <li class="nav-item">
-            <!--  -->
-            <router-link to="/admin"><a class="nav-link" aria-current="page"  href="#admin">Admin</a></router-link>
+            <router-link to="/admin"><a class="nav-link" aria-current="page">Admin</a></router-link>
           </li>
         </ul>
       </div>
@@ -31,6 +30,7 @@
   </div>
 </nav>
 </template>
+
 <script>
     export default {
         name: "NavbarComponent"
