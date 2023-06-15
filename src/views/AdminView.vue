@@ -394,7 +394,7 @@ tbody {
   height: 100%;
   overflow: hidden;
   min-height: 100vh;
-  margin-top: 80px;
+  margin-top: 70px;
   background-color: black;
 }
 .no-admin{
@@ -409,6 +409,8 @@ h2{
   margin-bottom: 2.5rem;
   line-height: 3.5rem;
 }
+
+/* Media Queries */
 
 @media (max-width: 600px) {
   .table thead {

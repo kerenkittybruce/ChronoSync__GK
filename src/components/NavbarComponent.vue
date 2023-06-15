@@ -5,12 +5,23 @@
         <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="" height="45">
     </a>
     <div>
+      <div v-if="user">
+        <button class="btn btn1 mx-2" @click="LogOut()">LogOut</button>
+        <router-link to="/clockin"><button class="btn btn2 mx-2">Clock In</button></router-link>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <img src="https://i.postimg.cc/fR4H1tfT/User-avatar-svg.png" alt="" height="33">
+        </button>
+      </div>
+
+      <div v-else>
         <router-link to="/login"><button class="btn btn1 mx-2">Login</button></router-link>
         <router-link to="/clockin"><button class="btn btn2 mx-2">Clock In</button></router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <img src="https://i.postimg.cc/fR4H1tfT/User-avatar-svg.png" alt="" height="33">
         </button>
+      </div>
     </div>
+
     <div class="offcanvas offcanvas-end bg-black" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="" height="27" class="offcanvas-title my-3 mx-2" id="offcanvasNavbarLabel">
@@ -40,10 +51,28 @@
 </template>
 
 <script>
+import router from '@/router';
+
     export default {
-        name: "NavbarComponent"
+        name: "NavbarComponent",
+
+        computed: {
+          user() {
+            return this.$store.state.user;
+          },
+        },
+
+        methods: {
+          LogOut() {
+          this.$store.state.user = null;
+          localStorage.clear();
+          router.push("login");
+          }
+        }
     }
+
 </script>
+
 <style scoped>
 
 .btn1{
