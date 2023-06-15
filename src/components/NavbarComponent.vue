@@ -64,7 +64,7 @@
     background-color: whitesmoke;
 }
 .offcanvas{
-  max-width: 60vw !important;
+    max-width: 60vw !important;
 }
 .offcanvas-body{
     text-align: left;

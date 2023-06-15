@@ -156,7 +156,6 @@ button {
     color: whitesmoke;
 }
 button:hover{
-    /* border: 2px solid green; */
     color: rgb(229, 229, 229);
     background-color: rgb(5, 162, 5);
     transition: 0.5s;

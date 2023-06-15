@@ -212,12 +212,13 @@
       </div>
     </div>
   </div>
-  <div v-else>
-    <div class="container">
+  <div class="no-admin-page" v-else>
+    <div class="no-admin container">
         <div class="row vh-100 d-flex justify-content-center align-content-center">
           <div class="text-center">
-            <h2>Apologies, You are not an Admin<br/>Only Admins Are Allowed Here</h2>
-            <router-link to="/"><a class="btn btn-dark">Back to Homepage</a></router-link>
+            <h2>Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices – ChronoSync .</h2>
+            <h2>Only admins are allowed here .</h2>
+            <router-link to="/"><a class="btn btn-success">Back to Homepage</a></router-link>
           </div>
         </div>
       </div>
@@ -225,8 +226,8 @@
 </template>
 
 <script>
-import { tsImportEqualsDeclaration } from "@babel/types";
-import axios from "axios";
+// import { tsImportEqualsDeclaration } from "@babel/types";
+// import axios from "axios";
 
 export default {
   name: 'AdminView',
@@ -307,7 +308,18 @@ i {
   display: none;
 }
 .btn {
-  border-radius: 0px;
+  width: 50%;
+  border-radius: 10px !important;
+  padding: 0.7rem 1.9rem;
+  margin: 0 0 10px;
+  font-size: 1rem;
+  background-color: green;
+  color: whitesmoke;
+}
+.btn:hover{
+    color: rgb(229, 229, 229);
+    background-color: rgb(5, 162, 5);
+    transition: 0.5s;
 }
 .cont {
   overflow-x: hidden;
@@ -373,6 +385,31 @@ tbody {
 .btn-close {
   background-color: whitesmoke;
 }
+
+/* If not admin user : */
+
+.no-admin-page{
+  position: scroll;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  min-height: 100vh;
+  margin-top: 80px;
+  background-color: black;
+}
+.no-admin{
+  min-width: 300px;
+  max-width: 700px;
+  width: 100%;
+  background-color: black;
+  color: whitesmoke;
+  font-family: 'Poppins', sans-serif;
+}
+h2{
+  margin-bottom: 2.5rem;
+  line-height: 3.5rem;
+}
+
 @media (max-width: 600px) {
   .table thead {
     display: none !important;
