@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import router from "@/router"
+import axios from 'axios';
 
 export default createStore({
   state: {
@@ -60,23 +61,11 @@ export default createStore({
     // Log In Existing User
     
     async loginUser(context, payload) {
-      fetch("https://spring-render-clocking-system.onrender.com/users/login", {
-      method: "POST",
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-      body: JSON.stringify(payload),
-      })
-      .then((response) => response.json())
-      .then((data) => {
-          if (data.err === "You entered an incorrect password or not registered. Please try again") {
-              alert( "You have entered an incorrect Email or Password. Please try again." );
-              document.location.reload();
-          } else {
-              console.log("Logged in");
-              context.commit("setUser", data.data.user);
-              cookies.set("token", data.token)
-              router.push({ name: "home" });
-          }
-      });
+      let URL = "https://spring-render-clocking-system.onrender.com/users/";
+      let result = await axios.post(URL + "login", payload)
+      context.commit("setUser", result?.data);
+      console.log("Logged user: ",this.state.user?.firstname); 
+      router.push({name: "home"})     
     },
 
     // Get All Users

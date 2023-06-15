@@ -54,4 +54,9 @@ h1{
     text-align: left;
     text-shadow: 5px 5px 7px rgba(0, 0, 0, 0.6);
 }
+@media screen and (width <= 650){
+    h1{
+        font-size: clamp(1.8rem, 5vw, 3.4rem);
+    }
+}
 </style>

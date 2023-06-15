@@ -4,6 +4,7 @@ import AdminView from '../views/AdminView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import HistoryView from '../views/HistoryView.vue'
+import ClockInView from '../views/ClockInView.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/history',
     name: 'history',
     component: HistoryView
+  },
+  {
+    path: '/clockin',
+    name: 'clockin',
+    component: ClockInView
   },
 ]
 

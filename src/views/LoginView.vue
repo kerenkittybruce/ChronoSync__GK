@@ -108,6 +108,7 @@ label{
     transform: translateY(1.8rem);
     transition: 0.6s ease;
     background-color: black;
+    border-radius: 10px;
 }
 input {
     width: 100%;

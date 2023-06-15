@@ -6,7 +6,7 @@
     </a>
     <div>
         <router-link to="/login"><button class="btn btn1 mx-2">Login</button></router-link>
-        <button class="btn btn2 mx-2">Clock In</button>
+        <router-link to="/clockin"><button class="btn btn2 mx-2">Clock In</button></router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <img src="https://i.postimg.cc/fR4H1tfT/User-avatar-svg.png" alt="" height="33">
         </button>
@@ -19,10 +19,18 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Login History</a>
+            <router-link to="/history">
+              <a class="nav-link" aria-current="page">
+              Login History
+            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/admin"><a class="nav-link" aria-current="page">Admin</a></router-link>
+            <router-link to="/admin">
+              <a class="nav-link" aria-current="page">
+                Admin
+              </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -55,7 +63,6 @@
 .btn-close{
     background-color: whitesmoke;
 }
-
 .offcanvas{
   max-width: 60vw !important;
 }
@@ -69,7 +76,7 @@
 .nav-link:hover{
     color: rgb(12, 173, 12) !important;
     transition: 0.5s;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 @media screen and (width < 550px) {

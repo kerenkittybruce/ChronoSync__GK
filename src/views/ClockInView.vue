@@ -1,12 +1,14 @@
 <template>
-    <div>
-        <h1>User History</h1>
+    <div class="clockin-view">
+        <h1>We're happy to see you again !</h1>
+        <br>
+        <h3>Clock in to your timesheet below :</h3>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HistoryView',
+    name: 'ClockInView',
 
     data() {
         return {
@@ -25,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-div {
+.clockin-view {
     position: scroll;
     width: 100%;
     height: 100%;
@@ -35,11 +37,19 @@ div {
     background-color: black;
 }
 h1 {
-    margin-top: 4.5%;
+    margin-top: 6%;
     padding-top: 12.5px;
     text-align: center;
     color: whitesmoke;
     font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: bold;
+}
+h3 {
+    margin-top: 2%;
+    padding-bottom: 12.5px;
+    text-align: center;
+    color: whitesmoke;
+    font-size: clamp(0.95rem, 2.5vw, 1.5rem);
     font-weight: bold;
 }
 </style>
