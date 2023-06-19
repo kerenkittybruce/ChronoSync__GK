@@ -1,14 +1,34 @@
 <template>
-    <div class="clockin-view">
-        <h1>We're happy to see you again !</h1>
-        <br>
-        <h3>Clock in to your timesheet below :</h3>
+
+    <!-- If user is 'admin' , show 'QRScanner' -->
+
+    <div v-if="user.role === 'admin'">
+        <div class="clockin-view pb-4">
+            <h1>Hello admin !</h1>
+            <br>
+            <h3>Scan below :</h3>
+            <QRScanner/>
+        </div>
+    </div>
+
+    <!-- If user is 'user' , show 'QRGenerator' -->
+
+    <div v-else>
+        <div class="clockin-view pb-4">
+            <h1>We're happy to see you again !</h1>
+            <br>
+            <h3>Clock in to your timesheet below :</h3>
+            <QRGenerator/>
+        </div>
     </div>
 </template>
 
 <script>
+import QRScanner from '../components/QRScanner.vue';
+import QRGenerator from '../components/QRGenerator.vue';
 export default {
     name: 'ClockInView',
+    components: {QRGenerator, QRScanner},
 
     data() {
         return {
@@ -20,8 +40,10 @@ export default {
         
     },
 
-    methods: {
-        
+    computed: {
+          user() {
+            return this.$store.state.user;
+          },
     },
 };
 </script>
@@ -33,7 +55,7 @@ export default {
     height: 100%;
     overflow: hidden;
     min-height: 100vh;
-    margin-top: 80px;
+    padding-top: 80px;
     background-color: black;
 }
 h1 {

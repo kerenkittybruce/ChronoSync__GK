@@ -71,22 +71,24 @@ export default createStore({
     // Get All Users
 
     getUsers: async (context) => {
-      let res = await fetch("https://spring-render-clocking-system.onrender.com/users/");
+      let res = await fetch("https://spring-render-clocking-system.onrender.com/users/all");
       let data = await res.json();
-      let result = data.results;
-      if (result) {
-        context.commit("setUsers", result);
-      } else {
-        console.log(`Loading...`);
-      }
+        context.commit("setUsers", data);
+      console.log(data);
     },
 
     // Get A Single User
 
-    getUser: async (context, userID) => {
-      console.log(userID);
-      let data = await fetch(`https://spring-render-clocking-system.onrender.com/user/` + userID);
-      let user = await data.json();
+    async getUser (context, userId) {
+      // let id = JSON.parse(userId)
+      // let data = await fetch(`https://spring-render-clocking-system.onrender.com/users/user/${userId}`);
+      // let user = await data.json();
+      // console.log(data);
+      let URL = "https://spring-render-clocking-system.onrender.com/users/user/";
+      let data = await axios.get(URL + userId);
+      // console.log(data.data)
+      let user = await data.data;
+      context.commit("setUser", user)
       console.log(user);
     },
 
