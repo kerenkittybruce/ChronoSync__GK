@@ -47,7 +47,6 @@ export default {
                 text: "dsfsdkjfskdjfnksjdfndsjk",
                 width: 290,
                 height: 290,
-                border: 2
             });
         }    
     },
