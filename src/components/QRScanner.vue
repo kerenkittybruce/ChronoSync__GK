@@ -56,7 +56,7 @@ export default {
                     latestRecord = latestRecord[latestRecord.length-1];
 
                     // if the user is clocked in
-                    if (latestRecord?.clockIn){
+                    if (latestRecord?.clockIn && !latestRecord?.clockOut){
                         console.log("Last clocked in at " + latestRecord?.clockIn);
                         let clockOutURL = `https://spring-render-clocking-system.onrender.com/clocking/user/${result}/clockout`;
                         let clockOutResponse = await axios.put(clockOutURL);

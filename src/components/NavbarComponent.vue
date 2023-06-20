@@ -10,29 +10,29 @@
         <!-- Admin Navbar -->
 
         <div v-if="user.role === 'admin'">
-        <router-link to="/admin"><button class="btn btn1 mx-2">Admin</button></router-link>
-        <button class="btn btn1 mx-2" @click="LogOut()">LogOut</button>
-        <router-link to="/clockin"><button class="btn btn2 mx-2">Scan</button></router-link>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-          <img src="https://i.postimg.cc/fR4H1tfT/User-avatar-svg.png" alt="" height="33">
-        </button>
+          <router-link to="/admin"><button class="btn btn1 mx-2">Admin</button></router-link>
+          <button class="btn btn1 mx-2" @click="LogOut()">LogOut</button>
+          <router-link to="/clockin"><button class="btn btn2 mx-2">Scan</button></router-link>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <img src="https://i.postimg.cc/fR4H1tfT/User-avatar-svg.png" alt="" height="33">
+          </button>
         </div>
 
         <!-- User Navbar -->
 
         <div v-if="user.role === 'user'">
-        <button class="btn btn1 mx-2" @click="LogOut()">LogOut</button>
-        <router-link to="/clockin"><button class="btn btn2 mx-2">Clock In</button></router-link>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-          <img src="https://i.postimg.cc/fR4H1tfT/User-avatar-svg.png" alt="" height="33">
-        </button>
+          <button class="btn btn1 mx-2" @click="LogOut()">LogOut</button>
+          <router-link to="/clockin"><button class="btn btn2 mx-2">Clock In</button></router-link>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <img src="https://i.postimg.cc/fR4H1tfT/User-avatar-svg.png" alt="" height="33">
+          </button>
         </div>
       </div>
 
       <!-- No User Logged In -->
 
       <div v-else>
-        <router-link to="/login"><button class="btn btn1 mx-2">Login</button></router-link>
+        <router-link to="/login"><button class="btn btn1 mx-2"  v-on:click="toggle">Login</button></router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <img src="https://i.postimg.cc/fR4H1tfT/User-avatar-svg.png" alt="" height="33">
         </button>
@@ -86,6 +86,10 @@ import router from '@/router';
           this.$store.state.user = null;
           localStorage.clear();
           router.push("login");
+          },
+
+          removeBtn(){
+            
           }
         }
     }

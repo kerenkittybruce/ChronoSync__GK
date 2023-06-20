@@ -167,7 +167,8 @@ button:hover{
 
 @media screen and (width < 550px) {
     h1{
-        padding-top: 70px; 
+        /* padding-top: 70px;  */
+        display: none;
     }  
 }
 </style>

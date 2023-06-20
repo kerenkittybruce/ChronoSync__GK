@@ -188,7 +188,7 @@ export default {
     },
     toggle: function() {
       document.querySelector("#icon").style.display = "inline-block";
-      document.querySelector("#icon2".style.display = "inline-block");
+      document.querySelector("#icon2").style.display = "inline-block";
       document.querySelector("#logs").style.display = "none";
       document.querySelector("#log").style.display = "none";
     }
