@@ -51,33 +51,33 @@ export default {
                 try {
                 
                     // return an error if the results scanned is not a number
-                    // if (parseInt(result) === NaN) return console.error("Value is not a number!");
+                    if (parseInt(result) === NaN) return console.error("Value is not a number!");
 
-                    // console.log("Id: " + result);
-                    // // get the latest record of the user
-                    // let clockingResponse = await axios.get('https://spring-render-clocking-system.onrender.com/clocking/all/user/' + result);
-                    // let latestRecord = clockingResponse?.data;
-                    // latestRecord = latestRecord[latestRecord.length-1];
+                    console.log("Id: " + result);
+                    // get the latest record of the user
+                    let clockingResponse = await axios.get('https://spring-render-clocking-system.onrender.com/clocking/all/user/' + result);
+                    let latestRecord = clockingResponse?.data;
+                    latestRecord = latestRecord[latestRecord.length-1];
 
-                    // // if the user is clocked in
-                    // if (latestRecord?.clockIn){
-                    //     console.log("Last clocked in at " + latestRecord?.clockIn);
-                    //     let clockOutURL = `https://spring-render-clocking-system.onrender.com/clocking/user/${result}/clockout`;
-                    //     let clockOutResponse = await axios.put(clockOutURL);
-                    //     // alert("Clockout response: " ,clockOutResponse);
-                    //     console.log("Clockout response: " ,clockOutResponse);
+                    // if the user is clocked in
+                    if (latestRecord?.clockIn){
+                        console.log("Last clocked in at " + latestRecord?.clockIn);
+                        let clockOutURL = `https://spring-render-clocking-system.onrender.com/clocking/user/${result}/clockout`;
+                        let clockOutResponse = await axios.put(clockOutURL);
+                        // alert("Clockout response: " ,clockOutResponse);
+                        console.log("Clockout response: " ,clockOutResponse);
                         
-                    //     console.log(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
-                    // }
+                        console.log(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
+                    }
 
-                    // // if the user is not clocked in
-                    // else {
-                    //     let clockInURL = `https://spring-render-clocking-system.onrender.com/clocking/add`;
-                    //     let clockinResponse = await axios.post(clockInURL, {
-                    //         userId: result,
-                    //     });
-                    //     console.log(clockinResponse ? "successfully clocked In": "Could not clock in");
-                    // }
+                    // if the user is not clocked in
+                    else {
+                        let clockInURL = `https://spring-render-clocking-system.onrender.com/clocking/add`;
+                        let clockinResponse = await axios.post(clockInURL, {
+                            userId: result,
+                        });
+                        console.log(clockinResponse ? "successfully clocked In": "Could not clock in");
+                    }
                 
                 // catch errors that are thrown
                 } catch (error) {
