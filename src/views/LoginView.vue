@@ -117,13 +117,17 @@ input {
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 1.1rem;
-    background-color: transparent;
+    background-color: black;
     border: 2px solid green;
     border-radius: 10px;
     outline: none;
     height: 40px;
     color: whitesmoke;
     transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+}
+input:focus{
+    background-color: black !important;
+    color: whitesmoke !important;
 }
 input:valid ~ label, input:focus ~ label{
     transform: translateY(-50px);

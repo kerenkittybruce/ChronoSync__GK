@@ -60,7 +60,6 @@ export default {
                         console.log("Last clocked in at " + latestRecord?.clockIn);
                         let clockOutURL = `https://spring-render-clocking-system.onrender.com/clocking/user/${result}/clockout`;
                         let clockOutResponse = await axios.put(clockOutURL);
-                        // alert("Clockout response: " ,clockOutResponse);
                         console.log("Clockout response: " ,clockOutResponse);
                         
                         console.log(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");

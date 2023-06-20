@@ -146,7 +146,7 @@ input {
     transition: border 150ms cubic-bezier(0.4,0,0.2,1);
 }
 input:focus {
-    background-color: transparent !important;
+    background-color: black !important;
     border: 2px solid green !important;
     color: whitesmoke !important;
     outline: none !important;

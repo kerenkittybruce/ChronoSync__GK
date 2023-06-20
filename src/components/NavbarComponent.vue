@@ -39,6 +39,8 @@
       </div>
     </div>
 
+    <!-- OffCanvas Menu -->
+
     <div class="offcanvas offcanvas-end bg-black" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="" height="27" class="offcanvas-title my-3 mx-2" id="offcanvasNavbarLabel">
