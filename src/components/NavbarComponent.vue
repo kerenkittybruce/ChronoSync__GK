@@ -2,7 +2,7 @@
     <nav class="navbar bg-black fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand py-3" href="#">
-        <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="" height="45">
+        <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="lifechoices-logo" height="45">
     </a>
     <div>
       <div v-if="user">

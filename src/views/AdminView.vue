@@ -136,7 +136,7 @@
           <div class="text-center">
             <h2>Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices – ChronoSync .</h2>
             <h2>Only admins are allowed here .</h2>
-            <router-link to="/"><a class="btn btn-success">Back to Homepage</a></router-link>
+            <router-link to="/"><a class="btn btn-dark">Back to Homepage</a></router-link>
           </div>
         </div>
       </div>
@@ -144,9 +144,6 @@
 </template>
 
 <script>
-// import { tsImportEqualsDeclaration } from "@babel/types";
-// import axios from "axios";
-
 export default {
   name: 'AdminView',
 

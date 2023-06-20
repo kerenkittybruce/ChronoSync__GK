@@ -7,7 +7,7 @@
         <br>
         <h3>Search for a name and their timesheet will appear below :</h3>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Login History
         </button>
 
@@ -20,9 +20,9 @@
                         <h5 class="modal-title" id="exampleModalLabel">User Login History</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body bg-dark">
                         <div>
-                            <a class="btn btn-primary dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <a class="btn modal-btn dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             June 2023
                             </a>
                             <div class="collapse" id="collapseExample">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div>
-                        <a class="btn btn-primary dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="btn modal-btn dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
                             July 2023
                         </a>
                         <div class="collapse" id="collapseExample2">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div>
-                        <a class="btn btn-primary dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="btn modal-btn dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
                             August 2023
                         </a>
                         <div class="collapse" id="collapseExample3">
@@ -97,8 +97,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn modal-btn">Save changes</button>
             </div>
         </div>
     </div>
@@ -110,7 +110,7 @@
           <div class="text-center">
             <h2>Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices – ChronoSync .</h2>
             <h2>Only admins are allowed here .</h2>
-            <router-link to="/"><a class="btn btn-success">Back to Homepage</a></router-link>
+            <router-link to="/"><a class="btn btn-dark">Back to Homepage</a></router-link>
           </div>
         </div>
     </div>
@@ -160,6 +160,22 @@ h3 {
     text-align: center;
     color: whitesmoke;
     font-size: clamp(0.95rem, 2.5vw, 1.5rem);
+    font-weight: bold;
+}
+
+/* History Modal */
+
+.modal-btn{
+    background-color: green;
+    color: whitesmoke;
+    width: 80%;
+}
+h5 {
+    margin-top: 2%;
+    padding-bottom: 12.5px;
+    text-align: center;
+    color: whitesmoke;
+    font-size: clamp(0.425rem, 1.25vw, 0.75rem);
     font-weight: bold;
 }
 </style>

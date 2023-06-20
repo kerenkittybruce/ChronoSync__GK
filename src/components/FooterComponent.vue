@@ -4,7 +4,7 @@
             <div class="container text-center text-md-left">
                 <div class="row text-center text-md-left">
                     <div class="logo col-md-3 mx-auto">
-                        <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="" height="60">
+                        <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="lifechoices-logo" height="60">
                     </div>
                     <div class="column col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h5 class="heading mb-4">Life Choices – ChronoSync</h5>
@@ -57,6 +57,7 @@ export default {
 footer {
     background-color: black;
     box-shadow: -6px -25px 98px -50px green;
+    font-family: 'Poppins', sans-serif;
 }
 .heading {
     color: whitesmoke;
