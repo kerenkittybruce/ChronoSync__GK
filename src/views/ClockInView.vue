@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <!-- If user is a 'user' , show 'QRGenerator' -->
+    <!-- If user is a  'user' , show 'QRGenerator' -->
 
     <div v-else>
         <div class="clockin-view pb-4">

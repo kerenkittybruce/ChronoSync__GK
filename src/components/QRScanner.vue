@@ -77,7 +77,7 @@ export default {
     height: 10px;
     width: 100%;
     position: absolute;
-    right: 26px;
+    right: 25px;
     background-image:  linear-gradient(rgba(51, 255, 0, 0), rgba(30, 185, 6, 0.514),rgba(51, 255, 0, 0));   
     z-index: 1000;
     animation: move 1.5s infinite linear;
@@ -89,13 +89,11 @@ export default {
     }
 
     50% {
-        top: 73%;
+        top: 75%;
     }
 
     100% {
         top: 0;
     }
 }
-
-
 </style>

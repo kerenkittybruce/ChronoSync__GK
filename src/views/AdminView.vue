@@ -2,7 +2,7 @@
 
   <!-- Inspired by Abdul Abrahams' E-commerce Capstone Project -->
 
-  <div>
+  <div v-if="user.role === 'admin'">
     <div class="everythin bg-black">
       <div >
         <div class="cont">
@@ -130,7 +130,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="no-admin-page" v-else>
+  <div class="no-admin-page" v-else>
     <div class="no-admin container">
         <div class="row vh-100 d-flex justify-content-center align-content-center">
           <div class="text-center">
@@ -140,7 +140,7 @@
           </div>
         </div>
       </div>
-  </div> -->
+  </div>
 </template>
 
 <script>

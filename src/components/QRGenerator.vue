@@ -44,7 +44,7 @@ export default {
 
             // // generate new QR code
             let qrcode = new QRCode(qrCodeContainer,{
-                text: link,
+                text: 5,
                 width: 290,
                 height: 290,
                 border: 2
@@ -97,6 +97,6 @@ body {
 
 .btn-generate{
     background-color: green;
-    color: white;
+    color: whitesmoke;
 }
 </style>
