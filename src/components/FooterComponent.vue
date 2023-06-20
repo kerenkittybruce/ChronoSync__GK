@@ -56,7 +56,7 @@ export default {
 <style scoped>
 footer {
     background-color: black;
-    box-shadow: -6px -25px 98px -50px green;
+    box-shadow: -6px -25px 98px -50px green !important;
     font-family: 'Poppins', sans-serif;
 }
 .heading {

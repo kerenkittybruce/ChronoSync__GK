@@ -4,7 +4,7 @@
 
   <div v-if="user.role === 'admin'">
     <div class="everythin bg-black">
-      <div >
+      <div>
         <div class="cont">
           <div class="users container">
             <h1>Users</h1>
@@ -134,9 +134,9 @@
     <div class="no-admin container">
         <div class="row vh-100 d-flex justify-content-center align-content-center">
           <div class="text-center">
-            <h2>Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices – ChronoSync .</h2>
-            <h2>Only admins are allowed here .</h2>
-            <router-link to="/"><a class="btn btn-dark">Back to Homepage</a></router-link>
+            <h2 class="words">Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices – ChronoSync .</h2>
+            <h2 class="words">Only admins are allowed here .</h2>
+            <router-link to="/"><a class="btn back-btn">Back to Homepage</a></router-link>
           </div>
         </div>
       </div>
@@ -165,6 +165,9 @@ export default {
   computed: {
     users() {
       return this.$store.state.users;
+    },
+    user() {
+      return this.$store.state.user;
     },
   },
 
@@ -198,132 +201,166 @@ export default {
 .everythin{
   min-height: 100vh;
 }
+
 .logBtn{
   background-color: green;
   color: whitesmoke;
 }
 
 i{
-    display: none;
+  display: none;
 }
   
-  .cont{
-    overflow-x: hidden;
-  }
+.cont{
+  overflow-x: hidden;
+}
   
-  .users{
-    justify-content: space-between;
-    display: flex;
-    margin-top: 150px;
+.users{
+  justify-content: space-between;
+  display: flex;
+  margin-top: 150px;
+}
+
+table{
+  border: 2px solid green !important;
+  border-radius: 10px;
+}
+  
+thead{
+  background: green;
+  color: whitesmoke;
+}
+
+tr, td{
+  border: 2px solid green;
+}
+  
+tbody{
+  background: rgb(0, 0, 0);
+  color: whitesmoke;
+}
+  
+.modal-content{
+  background: black;
+}
+.modal-body p{
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: whitesmoke;
+}
+  
+.modal-body input{
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  outline: none;
+  height: 40px;
+  color: whitesmoke;
+}
+.modal-body textarea{
+  justify-content: end;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  outline: none;
+  height: 40px;
+  color: whitesmoke;
+  height: 150px;
+}
+
+.modal-body form input{
+  border-radius: 0px;
+}
+  
+.modal-header{
+  color: whitesmoke;
+  border-bottom: 0px;
+}
+  
+.modal-footer{
+  border-top: 0px;
+}
+  
+.btn-close{
+  background-color: whitesmoke;
+}
+
+/* If user is not 'admin' */
+
+.back-btn{
+  background-color: green;
+  border: 2px solid green;
+  color: whitesmoke;
+}
+.back-btn:hover{
+  color: rgb(229, 229, 229);
+  background-color: rgb(5, 162, 5);
+  transition: 0.5s;
+}
+
+.no-admin-page{
+  background-color: black;
+  color: whitesmoke;
+  min-height: 100vh;
+  margin-bottom: -100px;
+  margin-top: 90px;
+}
+
+.no-admin{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: -30px;
+  margin-bottom: 100px;
+}
+
+.words{
+  text-align: center;
+  margin: 40px 0;
+}
+
+@media  (max-width: 600px ) {
+
+  .table thead{
+    display: none !important;
   }
 
-  table{
-    border: 2px solid green !important;
-    border-radius: 10px;
-  }
-  
-  thead{
-    background: green;
-    color: whitesmoke;
+  .table, .table tbody, .table tr, .table td{
+    display: block !important;
+    width: 100% !important;
   }
 
-  tr, td{
-    border: 2px solid green;
-  }
-  
-  tbody{
-    background: rgb(0, 0, 0);
-    color: whitesmoke;
-  }
-  
-  .modal-content{
+  .table tr{
     background: black;
+    margin-bottom: 20px !important;
   }
-  .modal-body p{
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    color: whitesmoke;
+
+  .table tbody{
+    background: whitesmoke;
   }
-  
-  .modal-body input{
-      width: 100%;
-      margin-bottom: 20px;
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid whitesmoke;
-      outline: none;
-      height: 40px;
-      color: whitesmoke;
-  
-  }
-  .modal-body textarea{
-    justify-content: end;
+
+  .table tbody tr td{
+    text-align: right;
+    position: relative;
     width: 100%;
-      margin-bottom: 20px;
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid whitesmoke;
-      outline: none;
-      height: 40px;
-      color: whitesmoke;
-    height: 150px;
   }
 
-  .modal-body form input{
-    border-radius: 0px;
-  }
-  
-  .modal-header{
+  .table td:before{
+    display: block;
     color: whitesmoke;
-    border-bottom: 0px;
-  }
-  
-  .modal-footer{
-    border-top: 0px;
-  }
-  
-  .btn-close{
-    background-color: whitesmoke;
+    content: attr(data-label) !important;
+    text-align: left;
   }
 
-  @media  (max-width: 600px ) {
-
-    .table thead{
-      display: none !important;
-
-    }
-
-    .table, .table tbody, .table tr, .table td{
-      display: block !important;
-      width: 100% !important;
-    }
-
-    .table tr{
-      background: black;
-      margin-bottom: 20px !important;
-    }
-
-    .table tbody{
-      background: whitesmoke;
-    }
-
-    .table tbody tr td{
-      text-align: right;
-      position: relative;
-      width: 100%;
-    }
-
-    .table td:before{
-      display: block;
-      color: whitesmoke;
-      content: attr(data-label) !important;
-      text-align: left;
-    }
-
-    .modal-body p{
-      text-align: left;
-    }
+  .modal-body p{
+    text-align: left;
   }
-
+}
 </style>

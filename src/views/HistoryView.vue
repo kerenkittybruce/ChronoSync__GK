@@ -105,13 +105,15 @@
 
     <!-- If user is a 'user', show 'error message' -->
 
-    <div class="no-admin container" v-else>
-        <div class="row vh-100 d-flex justify-content-center align-content-center">
-          <div class="text-center">
-            <h2>Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices – ChronoSync .</h2>
-            <h2>Only admins are allowed here .</h2>
-            <router-link to="/"><a class="btn btn-dark">Back to Homepage</a></router-link>
-          </div>
+    <div class="no-admin-page" v-else>
+        <div class="no-admin container">
+            <div class="row vh-100 d-flex justify-content-center align-content-center">
+                <div class="text-center">
+                    <h2 class="words">Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices – ChronoSync .</h2>
+                    <h2 class="words">Only admins are allowed here .</h2>
+                    <router-link to="/"><a class="btn back-btn">Back to Homepage</a></router-link>
+                 </div>
+            </div>
         </div>
     </div>
 </template>
@@ -124,6 +126,15 @@ export default {
         return {
             
         };
+    },
+
+    computed: {
+        users() {
+            return this.$store.state.users;
+        },
+        user() {
+            return this.$store.state.user;
+        },
     },
 
     mounted() {
@@ -177,5 +188,42 @@ h5 {
     color: whitesmoke;
     font-size: clamp(0.425rem, 1.25vw, 0.75rem);
     font-weight: bold;
+}
+
+/* If user is not 'admin' */
+
+.back-btn{
+    background-color: green;
+    border: 2px solid green;
+    color: whitesmoke;
+}
+.back-btn:hover{
+    color: rgb(229, 229, 229);
+    background-color: rgb(5, 162, 5);
+    transition: 0.5s;
+}
+
+.no-admin-page{
+    background-color: black;
+    color: whitesmoke;
+    min-height: 100vh;
+    margin-bottom: -100px;
+    margin-top: 90px;
+}
+
+.no-admin{
+  color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: -30px;
+  margin-bottom: 100px; */
+}
+
+.words{
+  text-align: center;
+  margin: 40px 0;
 }
 </style>

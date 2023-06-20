@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { Html5QrcodeScanner } from 'html5-qrcode'; 
 export default {
     name: 'QRScanner',
 
@@ -19,12 +20,12 @@ export default {
     },
 
     mounted() {
-        
+       this.createScanner(); 
     },
 
     methods: {
-
         createScanner(){
+            // defining the scanner
             let scanner = new Html5QrcodeScanner ('reader', {
                 qrbox: {
                     width: 250,
@@ -33,21 +34,50 @@ export default {
                 fps: 20
             });
 
+            // rendering the scanner, will perform function success or error
             scanner.render(success, error);
 
-            function success (result) {
+            // function success: excecuted if the QRCode has been scanned successfully
+            async function success (result) {
                 scanner.clear();
                 document.getElementById('reader').remove();
 
                 try {
-                    axios.post(URL + result);
+                    let baseURL = "https://spring-render-clocking-system.onrender.com";
+                    // return an error if the results scanned is not a number
+                    if (result === NaN) return console.error("Value is not a number!");
+
+                    // get the latest record of the user
+                    let clockingResponse = await axios.get(baseURL + '/clocking/all/user/' + result);
+                    let latestRecord = clockingResponse?.data;
+                    latestRecord = latestRecord[latestRecord.length-1];
+
+                    // if the user is clocked in
+                    if (latestRecord?.clockIn){
+                        console.log("Last clocked in at " + latestRecord?.clockIn);
+                        let clockOutURL = `${baseURL}/clocking/user/${result}/clockout`;
+                        let clockOutResponse = await axios.put(clockOutURL);
+                        console.log("Clockout response: " ,clockOutResponse);
+                        console.log(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
+                    }
+
+                    // if the user is not clocked in
+                    else {
+                        let clockInURL = `${baseURL}/clocking/add`;
+                        let clockinResponse = await axios.post(clockInURL, {
+                            userId: result,
+                        });
+                        console.log(clockinResponse ? "successfully clocked In": "Could not clock in");
+                    }
+                
+                // catch errors that are thrown
                 } catch (error) {
                     return error;
                 }
             }
 
             function error (err) {
-                console.error(err);
+                // console.error(err);
             }
         }
     },
