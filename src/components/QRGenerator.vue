@@ -44,7 +44,7 @@ export default {
 
             // // generate new QR code
             let qrcode = new QRCode(qrCodeContainer,{
-                text: 6,
+                text: "dsfsdkjfskdjfnksjdfndsjk",
                 width: 290,
                 height: 290,
                 border: 2

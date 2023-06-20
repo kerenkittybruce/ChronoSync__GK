@@ -40,7 +40,7 @@ export default {
             scanner.render(success, error);
 
             // function success: excecuted if the QRCode has been scanned successfully
-            async function success (result) {
+            async function success(result) {
                 scanner.clear();
                 document.getElementById('reader').remove();
 
