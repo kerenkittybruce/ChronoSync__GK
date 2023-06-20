@@ -81,7 +81,7 @@ export default {
                 
                 // catch errors that are thrown
                 } catch (error) {
-                    return error;
+                    // return error;
                 }
             }
 
