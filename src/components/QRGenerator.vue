@@ -32,7 +32,7 @@ export default {
         generateQRCode(){
             let qrCodeContainer = document.querySelector(".qrcode");
             // let link =  document.querySelector(".text").value;
-            let link = `https://spring-render-clocking-system.onrender.com/clocking/add`
+            let link = `https://spring-render-clocking-system.onrender.com/clocking/add`;
 
             // clear previous QR code
             qrCodeContainer.innerHTML = "";
@@ -44,7 +44,7 @@ export default {
 
             // // generate new QR code
             let qrcode = new QRCode(qrCodeContainer,{
-                text: 5,
+                text: link,
                 width: 290,
                 height: 290,
                 border: 2

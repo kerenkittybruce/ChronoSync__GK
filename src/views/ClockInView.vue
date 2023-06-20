@@ -1,6 +1,6 @@
 <template>
 
-    <!-- If user is 'admin' , show 'QRScanner' -->
+    <!-- If user is an 'admin' , show 'QRScanner' -->
 
     <div v-if="user.role === 'admin'">
         <div class="clockin-view pb-4">
@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <!-- If user is 'user' , show 'QRGenerator' -->
+    <!-- If user is a 'user' , show 'QRGenerator' -->
 
     <div v-else>
         <div class="clockin-view pb-4">
