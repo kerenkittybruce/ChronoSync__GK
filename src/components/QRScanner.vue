@@ -9,7 +9,9 @@
 </template>
 
 <script>
-import { Html5QrcodeScanner } from 'html5-qrcode'; 
+import { Html5QrcodeScanner } from 'html5-qrcode';
+import axios from 'axios'; 
+
 export default {
     name: 'QRScanner',
 

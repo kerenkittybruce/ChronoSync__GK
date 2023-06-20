@@ -86,13 +86,13 @@ body {
     width: 300px;
     height: 300px;
     border-radius: 5px;
-    border: 4px solid rgb(218, 218, 218);
+    border: 4px solid rgb(255, 255, 255);
     overflow: hidden;
 }
 
 
 .wrapper div{
-    background: #6c3636;
+    background: #9b9b9b;
     padding: 2rem 0;
 }
 ​
