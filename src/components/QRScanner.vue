@@ -21,10 +21,8 @@ export default {
         };
     },
 
-    computed: {
-        showScanner(){
-            this.createScanner(); 
-        }
+    mounted() {
+       this.createScanner(); 
     },
 
     methods: {
@@ -45,8 +43,6 @@ export default {
             async function success (result) {
                 scanner.clear();
                 document.getElementById('reader').remove();
-
-                console.log(result);
 
                 try {
                 
@@ -81,7 +77,7 @@ export default {
                 
                 // catch errors that are thrown
                 } catch (error) {
-                    // return error;
+                    return error;
                 }
             }
 
