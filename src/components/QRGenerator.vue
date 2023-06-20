@@ -86,8 +86,14 @@ body {
     width: 300px;
     height: 300px;
     border-radius: 5px;
-    border: 1px solid rgb(218, 218, 218);
+    border: 4px solid rgb(218, 218, 218);
     overflow: hidden;
+}
+
+
+.wrapper div{
+    background: #6c3636;
+    padding: 2rem 0;
 }
 ​
 .qr-title, .qr-paragraph {
