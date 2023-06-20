@@ -84,7 +84,7 @@ export default {
             }
 
             function error (err) {
-                // console.error(err);
+                console.error("Could not scan");
             }
         }
     },
