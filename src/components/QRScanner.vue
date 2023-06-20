@@ -45,11 +45,11 @@ export default {
                 document.getElementById('reader').remove();
 
                 try {
-            
+                
                     // return an error if the results scanned is not a number
-                    if (result === NaN) return console.error("Value is not a number!");
+                    if (parseInt(result) === NaN) return console.error("Value is not a number!");
 
-                    console.log(result);
+                    console.log("Result: " + result);
                     // get the latest record of the user
                     let clockingResponse = await axios.get('https://spring-render-clocking-system.onrender.com/clocking/all/user/' + result);
                     let latestRecord = clockingResponse?.data;
@@ -60,8 +60,10 @@ export default {
                         console.log("Last clocked in at " + latestRecord?.clockIn);
                         let clockOutURL = `https://spring-render-clocking-system.onrender.com/clocking/user/${result}/clockout`;
                         let clockOutResponse = await axios.put(clockOutURL);
-                        alert("Clockout response: " ,clockOutResponse);
-                        alert(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
+                        // alert("Clockout response: " ,clockOutResponse);
+                        console.log("Clockout response: " ,clockOutResponse);
+                        
+                        console.log(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
                     }
 
                     // if the user is not clocked in
@@ -70,12 +72,12 @@ export default {
                         let clockinResponse = await axios.post(clockInURL, {
                             userId: result,
                         });
-                        alert(clockinResponse ? "successfully clocked In": "Could not clock in");
+                        console.log(clockinResponse ? "successfully clocked In": "Could not clock in");
                     }
                 
                 // catch errors that are thrown
                 } catch (error) {
-                    return alert(error);
+                    return error;
                 }
             }
 
