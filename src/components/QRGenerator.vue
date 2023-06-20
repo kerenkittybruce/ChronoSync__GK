@@ -30,6 +30,7 @@ export default {
     methods: {
 
         generateQRCode(){
+            // console.log(this.$store.);
             let qrCodeContainer = document.querySelector(".qrcode");
             // let link =  document.querySelector(".text").value;
             let link = `https://spring-render-clocking-system.onrender.com/clocking/add`;
@@ -44,7 +45,7 @@ export default {
 
             // // generate new QR code
             let qrcode = new QRCode(qrCodeContainer,{
-                text: "6jh",
+                text: "6",
                 width: 290,
                 height: 290,
             });
