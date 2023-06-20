@@ -45,10 +45,11 @@ export default {
                 document.getElementById('reader').remove();
 
                 try {
-             
+            
                     // return an error if the results scanned is not a number
                     if (result === NaN) return console.error("Value is not a number!");
 
+                    console.log(result);
                     // get the latest record of the user
                     let clockingResponse = await axios.get('https://spring-render-clocking-system.onrender.com/clocking/all/user/' + result);
                     let latestRecord = clockingResponse?.data;
