@@ -44,7 +44,7 @@ export default {
                 scanner.clear();
                 document.getElementById('reader').remove();
 
-                console.log(result);
+                console.log("Result: ", result);
 
                 // try {
                 
