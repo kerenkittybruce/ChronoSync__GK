@@ -27,6 +27,12 @@ export default {
         
     },
 
+    computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+
     methods: {
 
         generateQRCode(){
@@ -45,7 +51,7 @@ export default {
 
             // // generate new QR code
             let qrcode = new QRCode(qrCodeContainer,{
-                text: "6",
+                text: `${this.user?.userId}`,
                 width: 290,
                 height: 290,
             });

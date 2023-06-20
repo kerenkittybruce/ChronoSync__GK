@@ -61,9 +61,9 @@ export default {
                         let clockOutURL = `https://spring-render-clocking-system.onrender.com/clocking/user/${result}/clockout`;
                         let clockOutResponse = await axios.put(clockOutURL);
                         // alert("Clockout response: " ,clockOutResponse);
-                        console.log("Clockout response: " ,clockOutResponse);
+                        alert("Clockout response: " ,clockOutResponse);
                         
-                        console.log(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
+                        alert(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
                     }
 
                     // if the user is not clocked in
@@ -72,12 +72,12 @@ export default {
                         let clockinResponse = await axios.post(clockInURL, {
                             userId: result,
                         });
-                        console.log(clockinResponse ? "successfully clocked In": "Could not clock in");
+                        alert(clockinResponse ? "successfully clocked In": "Could not clock in");
                     }
                 
                 // catch errors that are thrown
                 } catch (error) {
-                    return error;
+                    return alert(error);
                 }
             }
 
