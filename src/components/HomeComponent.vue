@@ -34,7 +34,6 @@ export default {
     justify-content:left;
     align-items: left;
     min-height: 100vh;
-    margin-top: 80px;
     background-image: url("https://i.postimg.cc/zBrgBmqZ/eliott-reyna-j-CEp-N62o-WL4-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;

@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar bg-black fixed-top">
+    <nav class="navbar bg-black">
   <div class="container-fluid">
     <a class="navbar-brand py-3" href="#">
         <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="lifechoices-logo" height="45">
@@ -131,11 +131,9 @@ import router from '@/router';
     text-decoration: none !important;
 }
 
-@media screen and (width < 550px) {
-  .navbar {
-    position: scroll !important;
-  }
+@media screen and (width < 720px) {
   .navbar>.container-fluid{
+    position:static !important;
     justify-content: space-around;
 }
 }
