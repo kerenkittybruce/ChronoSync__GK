@@ -6,15 +6,14 @@ export default createStore({
   state: {
     users: null,
     user: null || JSON.parse(localStorage.getItem("user")),
-    admins: null,
+    clockings: null,
     admin: null,
+    userHistory: null
   },
 
   getters: {
     getUsers: (state) => state.users,
     getUser: (state) => state.user,
-    getAdmins: (state) => state.admins,
-    getAdmin: (state) => state.admin,
   },
 
   mutations: {
@@ -22,9 +21,17 @@ export default createStore({
       state.users = users;
     },
 
+    setUserHistory(state, userHistory){
+      state.userHistory = userHistory;
+    },
+
     setUser(state, user) {
       localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
+    },
+
+    setClockings(state, clockings) {
+      state.clockings = clockings;
     },
   },
 
@@ -69,7 +76,6 @@ export default createStore({
     },
 
     // Get All Users
-
     getUsers: async (context) => {
       let res = await fetch("https://spring-render-clocking-system.onrender.com/users/all");
       let data = await res.json();
@@ -144,16 +150,12 @@ export default createStore({
       });
     },
 
-    // To Check If User Is An Admin
-
-    checkAdmin(context) {
-      if (context.state.user != null) {
-        if (context.state.user.userRole = "Admin") {
-          context.state.admin = true;
-        } else {
-          context.state.admin = false;
-        }
-      }
+    getClockings: async (context, id) => {
+      let res = await fetch(`https://spring-render-clocking-system.onrender.com/clocking/all/user/${id}`);
+      console.log(id);
+      let data = await res.json();
+      context.commit("setClockings", data);
+      console.log("Clocking history: ", data);
     },
   },
 

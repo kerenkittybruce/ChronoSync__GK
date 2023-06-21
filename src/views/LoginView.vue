@@ -1,7 +1,7 @@
 <template>
     <div class="login-section">
         <h1>Login</h1>
-        <form @submit.prevent="loginUser" class="login-form" method="POST">
+        <form @submit.prevent="loginUser" class="login-form" method="POST" au>
             <br>
             <div class="group email">
                 <label for="email">E-mail Address</label>
@@ -132,6 +132,10 @@ input:focus{
 input:valid ~ label, input:focus ~ label{
     transform: translateY(-50px);
     font-size: 0.6rem;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px black inset;
+    -webkit-text-fill-color: whitesmoke !important;
 }
 
 /* End of animated input */

@@ -72,7 +72,7 @@ body {
 }
 ​
 .wrapper {
-    width: 400px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     gap: 1rem;

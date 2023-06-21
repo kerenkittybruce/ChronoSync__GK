@@ -1,8 +1,6 @@
 <template>
     <div class="wrapper">
-
         <!-- QR Code Functionality by Lazola Makubalo -->
-
         <div id="reader"></div>
         <div id="result"></div>
     </div>
@@ -15,15 +13,10 @@ import axios from 'axios';
 export default {
     name: 'QRScanner',
 
-    data() {
-        return {
-            
-        };
-    },
-
     mounted() {
        this.createScanner(); 
     },
+
 
     methods: {
         createScanner(){
@@ -37,15 +30,20 @@ export default {
             });
 
             // rendering the scanner, will perform function success or error
-            scanner.render(success, error);
+            function renderScanner(){
+                scanner.render(success, error);
+            }
+            renderScanner();
 
             // function success: excecuted if the QRCode has been scanned successfully
             async function success(result) {
+                // clear the scanner and bring it back after 4 seconds
                 scanner.clear();
-                document.getElementById('reader').remove();
+                setTimeout( ()=> {
+                    renderScanner();
+                }, 4000)
 
                 try {
-                
                     // return an error if the results scanned is not a number
                     if (parseInt(result) === NaN) return console.error("Value is not a number!");
 
@@ -56,34 +54,60 @@ export default {
                     latestRecord = latestRecord[latestRecord.length-1];
 
                     // if the user is clocked in
-                    if (latestRecord?.clockIn && !latestRecord?.clockOut){
+
+                    // check if the date is the same
+                    const currentFormattedDate = () => {
+                        let date = new Date();
+                        // options to set the current date
+                        let options = {
+                            timeZone: 'Africa/Johannesburg',     
+                        };
+                        // south african date
+                        let saDate = date.toLocaleDateString('en-ZA', options);
+                        let splittedDate = saDate.split('/');
+                        return `${splittedDate[0]}-${splittedDate[1]}-${splittedDate[2]}`;
+                    }
+            
+                    // boolean: true if dates are the same else false
+                    let sameDate = currentFormattedDate() === latestRecord?.date;
+
+                    // if there is a clock in, no clockout and still same date
+                    if (latestRecord?.clockIn && !latestRecord?.clockOut && sameDate){
+                        console.log("Debug1: Same date? : " + sameDate);
                         console.log("Last clocked in at " + latestRecord?.clockIn);
                         let clockOutURL = `https://spring-render-clocking-system.onrender.com/clocking/user/${result}/clockout`;
                         let clockOutResponse = await axios.put(clockOutURL);
-                        console.log("Clockout response: " ,clockOutResponse);
-                        
-                        console.log(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
-                    }
-
-                    // if the user is not clocked in
-                    else {
+                        console.log("Clockout response: ", clockOutResponse);
+                        alert(clockOutResponse?.data ? "Successfully clocked out" : "Could not clock out!");
+                    } 
+                    
+                    else if (
+                        // if there is a clock in, no clockout but different date
+                        (latestRecord?.clockIn && !latestRecord?.clockOut && !sameDate) ||
+                        // or if there is a clock out
+                        (latestRecord?.clockOut)
+                    ){
+                        console.log("Debug2: Same date? : " + sameDate);
                         let clockInURL = `https://spring-render-clocking-system.onrender.com/clocking/add`;
                         let clockinResponse = await axios.post(clockInURL, {
                             userId: result,
                         });
-                        console.log(clockinResponse ? "successfully clocked In": "Could not clock in");
+                        alert(clockinResponse ? "successfully clocked In": "Could not clock in");
                     }
+
                 
                 // catch errors that are thrown
-                } catch (error) {
-                    return error;
+                } catch (err) {
+                    return console.error(err);
                 }
             }
 
+            // ignore this error while scanning
             function error (err) {
-                // console.error(err);
+                return
             }
-        }
+        },
+        
     },
 };
 </script>
@@ -106,28 +130,4 @@ export default {
     position: relative;
 }
 
-#reader::before {
-    content: "";
-    height: 10px;
-    width: 100%;
-    position: absolute;
-    right: 25px;
-    background-image:  linear-gradient(rgba(51, 255, 0, 0), rgba(30, 185, 6, 0.514),rgba(51, 255, 0, 0));   
-    z-index: 1000;
-    animation: move 1.5s infinite linear;
-}
-
-@keyframes move {
-    0% { 
-        top: 0;
-    }
-
-    50% {
-        top: 75%;
-    }
-
-    100% {
-        top: 0;
-    }
-}
 </style>

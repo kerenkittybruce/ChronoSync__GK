@@ -132,7 +132,10 @@ import router from '@/router';
 }
 
 @media screen and (width < 550px) {
-.navbar>.container-fluid{
+  .navbar {
+    position: scroll !important;
+  }
+  .navbar>.container-fluid{
     justify-content: space-around;
 }
 }

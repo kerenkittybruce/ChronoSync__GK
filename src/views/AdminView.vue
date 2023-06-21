@@ -1,7 +1,7 @@
 <template>
 
   <!-- Inspired by Abdul Abrahams' E-commerce Capstone Project -->
-
+<div v-if="user">
   <div v-if="user.role === 'admin'">
     <div class="everythin bg-black">
       <div>
@@ -14,7 +14,7 @@
   
               <!-- Users Modal -->
   
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade popped-up" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -82,7 +82,79 @@
                         {{ user?.role }}
                       </td>
                       <td>
-                        <button class="btn logBtn">Login History</button>
+                        <button class="btn logBtn" data-bs-toggle="modal" :data-bs-target= "`#HistoryModal${user?.userId}`"
+                          @click.prevent="setClockingHistory(user?.userId)">Login History</button>
+                            <div class="modal fade" :id="`HistoryModal${user?.userId}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <a class="btn btn-success dropdown-toggle w-100 mb-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                      June 2023
+                                      </a>
+
+
+                                      <div class="collapse" id="collapseExample">
+                                        <div v-if="clockings?.length > 0">
+                                          <table v-for="record in clockings" :key="record?.recordId" class="mb-3">
+                                            <thead>
+                                              <tr>
+                                                <th colspan="2">{{ record?.date }}</th>
+                                              </tr>
+                                            </thead>
+
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <input type="text" :value="record?.clockIn">
+                                                </td>
+                                                <td>
+                                                  <input type="text" :value="record?.clockOut === null ? '---' : record?.clockOut">
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          
+                                          </table>
+                                        </div>
+                                        <div v-else>
+                                          <h1 class="text-white">Nothing to display</h1>
+                                        </div>
+                                          
+                                          <!-- <table>
+                                            <thead>
+                                              <tr>
+                                                <th colspan="2">1 June 2023</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <input type="text" value="08:25 AM">
+                                                </td>
+                                                <td>
+                                                  <input type="text" value="16:30 PM">
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table> -->
+                                      </div>
+
+
+
+
+
+
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                       </td>
                       <td data-label="Edit">
                         <a class="btn btn-dark btn-md edit" data-bs-toggle="modal" :data-bs-target="`#editModal${user?.userId}`" id="addCart" style="font-size: 12px;">
@@ -141,6 +213,7 @@
         </div>
       </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -155,6 +228,7 @@ export default {
         email: "",
         password: "",
       },
+      selectedUserId: null,
     };
   },
 
@@ -169,9 +243,18 @@ export default {
     user() {
       return this.$store.state.user;
     },
+    clockings(){
+      return this.$store.state.clockings;
+    }
   },
 
   methods: {
+    setClockingHistory(userId){
+      this.selectedUserId = userId;
+      this.$store.dispatch("getClockings", this.selectedUserId);
+    
+      console.log(this.clockings);
+    },
     async addUser () {
       await this.$store.dispatch("addUser", this.register);
       this.register.firstname = "";
@@ -198,6 +281,20 @@ export default {
 
 <style scoped>
 
+.modal-content {
+  /* border: .5px solid green; */
+  box-shadow: 0 0 10px 0 green;
+}
+.collapse table{
+  width: 100%;
+}
+
+.collapse table input{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0px;
+}
 .everythin{
   min-height: 100vh;
 }
@@ -248,14 +345,18 @@ tbody{
   padding: 0;
   font-size: 20px;
   color: whitesmoke;
+  border: 1px solid whitesmoke;
+  width: 98%;
 }
   
 .modal-body input{
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 20px;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  border-left: 1px solid whitesmoke;
   outline: none;
   height: 40px;
   color: whitesmoke;
