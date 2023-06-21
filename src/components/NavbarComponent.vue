@@ -131,18 +131,12 @@ import router from '@/router';
 }
 
 .navbar {
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* Media Queries */
-
-/* @media screen and (width: 1440px) {
-  nav {
-    position: sticky;
-  }
-} */
 
 @media screen and (max-width: 550px) {
   .navbar {
@@ -156,6 +150,6 @@ import router from '@/router';
   .navbar>.container-fluid{
     position:static !important;
     justify-content: space-around;
-}
+  }
 }
 </style>
