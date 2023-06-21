@@ -1,6 +1,6 @@
 <template>
-    <div class="body">
-        <h1 class="my-5 head">Register</h1>
+    <div class="bo">
+        <h1 class="head my-0">Register</h1>
         <div class="loginbox animate__animated animate__fadeIn">
             <form @submit.prevent="registerUser" method="POST" class="mx-4 my-5">
                 <div class="row">
@@ -72,7 +72,7 @@ i{
   animation: fadeIn;
   animation-duration: 5s;
 }
-.body{
+.bo{
     margin: 0;
     padding: 0;
     background-color: #000;
@@ -182,6 +182,7 @@ input:-webkit-autofill {
 }
 .head{
     font-family: Poppins, sans-serif !important;
+    padding-top: 100px;
 }
 .reg{
     font-family: Poppins, sans-serif !important;
@@ -198,10 +199,17 @@ button:hover{
     background-color: rgb(5, 162, 5);
     transition: 0.5s;
 }
+
+@media screen and (max-width: 550px) {
+    .head {
+        display: none;
+    }
+}
 @media screen and (width <= 650){
     .loginbox{
         width: 70% !important;
     }
+    
 }
 
 @media screen and (width < 550px) {

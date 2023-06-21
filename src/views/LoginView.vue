@@ -66,8 +66,7 @@ I{
 .login-section{
     background-color: black;
     min-height: 100vh;
-    margin-bottom: -100px;
-    margin-top: 90px;
+    padding-bottom: 100px;
 }
 .login-form {
     min-width: 300px;
@@ -83,7 +82,7 @@ I{
     border-radius: 2rem;
 }
 h1 {
-    padding-top: 30px;
+    padding-top: 90px;
     text-align: center;
     color: whitesmoke;
     font-size: clamp(3.6rem, 10vw, 6rem);
