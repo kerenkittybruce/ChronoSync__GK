@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar bg-black">
+    <nav class="navbar bg-black ">
   <div class="container-fluid">
     <a class="navbar-brand py-3" href="#">
         <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="lifechoices-logo" height="45">
@@ -97,9 +97,6 @@ import router from '@/router';
 </script>
 
 <style scoped>
-nav{
-  position: fixed;
-}
 .btn1{
     background-color: green;
     border: 2px solid green;
@@ -131,6 +128,28 @@ nav{
     color: rgb(12, 173, 12) !important;
     transition: 0.5s;
     text-decoration: none !important;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Media Queries */
+
+/* @media screen and (width: 1440px) {
+  nav {
+    position: sticky;
+  }
+} */
+
+@media screen and (max-width: 550px) {
+  .navbar {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+}
 }
 
 @media screen and (width < 720px) {
