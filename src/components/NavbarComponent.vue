@@ -140,10 +140,10 @@ import router from '@/router';
 
 @media screen and (max-width: 550px) {
   .navbar {
-  position: relative;
-  width: 100%;
-  z-index: 1000;
-}
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+  }
 }
 
 @media screen and (width < 720px) {
