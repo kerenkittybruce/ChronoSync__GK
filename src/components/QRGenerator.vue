@@ -72,7 +72,7 @@ body {
 }
 ​
 .wrapper {
-    width: 200px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -95,11 +95,15 @@ body {
     border: 4px solid rgb(255, 255, 255);
     overflow: hidden;
 }
-
-
 .wrapper div{
+    display: block;
+    margin-top: 2.8rem;
+    margin-left: auto;
+    margin-right: auto;
     background: #9b9b9b;
+    width: 380px;
     padding: 2rem 0;
+    border-radius: 10px;
 }
 ​
 .qr-title, .qr-paragraph {

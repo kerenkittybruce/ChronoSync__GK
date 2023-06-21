@@ -97,7 +97,9 @@ import router from '@/router';
 </script>
 
 <style scoped>
-
+nav{
+  position: fixed;
+}
 .btn1{
     background-color: green;
     border: 2px solid green;
