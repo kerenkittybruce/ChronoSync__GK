@@ -12,7 +12,7 @@
               Add User
             </button>
   
-              <!-- Users Modal -->
+              <!-- Add New User Modal -->
   
               <div class="modal fade popped-up" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -26,29 +26,29 @@
                         <div class="row">
                           <div class="col">
                             <p>FirstName</p>
-                            <input type="text" class="form-control" v-model="register.firstname" name="firstName"  aria-label="First name" required="">
+                            <input type="text" class="form-control" v-model="register.firstname" name="firstname"  aria-label="First name" required="">
                           </div>
                         </div>
                         <div class="row">
                           <div class="col">
                             <p>LastName</p>
-                            <input type="text" class="form-control" v-model="register.lastname" name="lastName" aria-label="Last name" required="">
+                            <input type="text" class="form-control" v-model="register.lastname" name="lastname" aria-label="Last name" required="">
                           </div>
                         </div>
                         <div class="row">
                           <div class="col">
                             <p>Email</p>
-                            <input type="text" class="form-control" v-model="register.email" name="userEmail"  aria-label="First name" required="">
+                            <input type="text" class="form-control" v-model="register.email" name="email"  aria-label="First name" required="" autocomplete="off">
                           </div>
                         </div>
                         <div class="row">
                           <div class="col">
                             <p>Password</p>
-                            <input type="password" class="form-control"  v-model="register.password" name="userPass" aria-label="Last name" required="">
+                            <input type="password" class="form-control"  v-model="register.password" name="password" aria-label="Last name" required="" autocomplete="off">
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-light" v-on:click="toggle"><span id="logs">Create User</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
+                          <button type="submit" class="btn btn-light" v-on:click="addUser" @click="this.$store.dispatch('addUser', user)"><span id="logs">Create User</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
                         </div>
                       </form>
                     </div>
@@ -57,11 +57,11 @@
               </div>
             </div>
 
-            <!-- Users CRUD Table -->
+            <!-- Users Information CRUD Table -->
 
             <div class="table crud-table">
               <table class="table align-middle container-sm">
-                <thead class="">
+                <thead>
                   <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
@@ -88,15 +88,13 @@
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">User Login History</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                   </div>
                                   <div class="modal-body">
-                                      <a class="btn btn-success dropdown-toggle w-100 mb-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                      <a class="btn modBtn dropdown-toggle w-100 mb-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                       June 2023
                                       </a>
-
-
                                       <div class="collapse" id="collapseExample">
                                         <div v-if="clockings?.length > 0">
                                           <table v-for="record in clockings" :key="record?.recordId" class="mb-3">
@@ -120,42 +118,21 @@
                                           </table>
                                         </div>
                                         <div v-else>
-                                          <h1 class="text-white">Nothing to display</h1>
+                                          <h1 style="color: whitesmoke;">Nothing to display</h1>
                                         </div>
-                                          
-                                          <!-- <table>
-                                            <thead>
-                                              <tr>
-                                                <th colspan="2">1 June 2023</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr>
-                                                <td>
-                                                  <input type="text" value="08:25 AM">
-                                                </td>
-                                                <td>
-                                                  <input type="text" value="16:30 PM">
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table> -->
                                       </div>
-
-
-
-
-
-
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn modBtn">Save changes</button>
                                   </div>
                                 </div>
                               </div>
                             </div>
                       </td>
+
+                      <!-- Edit User -->
+
                       <td data-label="Edit">
                         <a class="btn btn-dark btn-md edit" data-bs-toggle="modal" :data-bs-target="`#editModal${user?.userId}`" id="addCart" style="font-size: 12px;">
                           Edit
@@ -170,7 +147,7 @@
                                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                <form autocomplete="off" @submit.prevent="editUser" method="POST">
+                                <form autocomplete="off" @submit.prevent="updateUser" method="POST">
                                   <p>First Name</p>
                                   <input class="col-12 my-3" id="Name" type="text" v-model="user.firstname" required>
                                   <p>Last Name</p>
@@ -182,7 +159,7 @@
                                   <!-- <p>Edit 01</p>
                                   <input class="col-12 my-3" id="img" type="text" v-model="user.userProfile" required> -->
                                   <div class="modal-footer">
-                                    <button @click="this.$store.dispatch('editUser', user)" class="btn btn-light" id="submit" data-bs-dismiss="modal">Edit User</button>
+                                    <button @click="this.$store.dispatch('updateUser', user)" class="btn btn-light" id="submit" data-bs-dismiss="modal">Edit User</button>
                                   </div>
                                 </form>
                               </div>
@@ -223,11 +200,11 @@ export default {
   data() {
     return {
       register: {
-        firstname: "",
-        lastname: "",
-        email: "",
-        password: "",
-      },
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "",
+            },
       selectedUserId: null,
     };
   },
@@ -255,13 +232,13 @@ export default {
     
       console.log(this.clockings);
     },
-    async addUser () {
-      await this.$store.dispatch("addUser", this.register);
-      this.register.firstname = "";
-      this.register.lastname = "";
-      this.register.email = "";
-      this.register.password = "";
-    },
+    async addUser() {
+           await this.$store.dispatch("registerUser", this.register);
+            this.register.firstname = "";
+            this.register.lastname = "";
+            this.register.email = "";
+            this.register.password = "";
+            },
     deleteUser(id) {
       this.$store.dispatch("deleteUser", id);
       return console.log("User was deleted .");
@@ -269,17 +246,21 @@ export default {
     setTimeout() {
       document.location.reload;
     },
-    toggle: function() {
-      document.querySelector("#icon").style.display = "inline-block";
-      document.querySelector("#icon2").style.display = "inline-block";
-      document.querySelector("#logs").style.display = "none";
-      document.querySelector("#log").style.display = "none";
-    }
+    // toggle: function() {
+    //   document.querySelector("#icon").style.display = "inline-block";
+    //   document.querySelector("#logs").style.display = "none";
+    //   document.querySelector("#log").style.display = "none";
+    // }
   },
 };
 </script>
 
 <style scoped>
+
+.modBtn{
+  background-color: green;
+  color: white;
+}
 
 .modal-content {
   /* border: .5px solid green; */

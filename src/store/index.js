@@ -56,7 +56,6 @@ export default createStore({
         .then((data) => {
           if (data.err === "Email already in use") {
             alert( "Email already in use." );
-            document.location.reload();
           } else {
             console.log("Registered");
           context.commit("setUsers", data)
@@ -64,6 +63,8 @@ export default createStore({
           }
         });
     },
+    
+    
 
     // Log In Existing User
     
@@ -101,42 +102,46 @@ export default createStore({
     // Delete A User
 
     deleteUser: async (context, userID) => {
-      await fetch("https://spring-render-clocking-system.onrender.com/user/" + userID, {
+      await fetch("https://spring-render-clocking-system.onrender.com/users/user/" + userID, {
         method: "DELETE",
       })
-      .then((res) => res.json())
-      .then(() => context.dispatch("getUsers"));
+      .then(() => context.dispatch("getUsers", userID));
     },
 
     // Add A Single User
 
-    // addUser: async (context, payload) => {
-    //   const { firstname, lastname, userEmail, userPass } = payload;
-    //   await fetch("https://spring-render-clocking-system.onrender.com/register/", {
-    //     method: "POST",
-    //     headers: { "Content-type": "application/json; charset = UTF-8"},
-    //     body: JSON.stringify({
-    //       firstname: firstname,
-    //       lastname: lastname,
-    //       userEnail: userEmail,
-    //       userPass: userPass,
-    //     })
-    //   })
-    //   .then((response) => response.json())
-    //   .then((json) => context.commit(
-    //     "setUsers",
-    //     json,
-    //     router.push({
-    //       name: "login",
-    //     })
-    //   ))
-    // },
+    addUser: async (context, payload) => {
+      const { firstname, lastname, email, password } = payload;
+      await fetch("https://spring-render-clocking-system.onrender.com/users/add", {
+        method: "POST",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          password: password,
+        }),
+      })
+      // console.log(payload)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.err === "Email already in use") {
+            alert( "Email already in use." );
+            document.location.reload();
+          } else {
+            console.log("Registered");
+          context.commit("setUsers", data)
+            // router.push({name: "admin"})
+            location.reload();
+          }
+        });
+    },
 
     // Update A Single User
 
     updateUser: async (context, user) => {
-      await fetch("https://spring-render-clocking-system.onrender.com/user/" + user.userID, {
-        method: "PUT",
+      await fetch("https://spring-render-clocking-system.onrender.com/users/update/user/" + user.userId, {
+        method: "PATCH",
         body: JSON.stringify(user),
         headers: {
           "Content-type": "application/json; charset = UTF-8",

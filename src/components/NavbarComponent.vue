@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar bg-black ">
+    <nav class="navbar bg-black fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand py-3" href="#">
         <img src="https://i.postimg.cc/MpGc6vG1/logo-429x99.png" alt="lifechoices-logo" height="45">
@@ -138,18 +138,18 @@ import router from '@/router';
 
 /* Media Queries */
 
+@media screen and (max-width : 720px) {
+  .navbar>.container-fluid{
+    position:static !important;
+    justify-content: space-around;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .navbar {
     position: relative;
     width: 100%;
-  z-index: 1000;
-  }
-}
-
-@media screen and (width < 720px) {
-  .navbar>.container-fluid{
-    position:static !important;
-    justify-content: space-around;
+    z-index: 1000;
   }
 }
 </style>
