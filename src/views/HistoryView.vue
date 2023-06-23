@@ -61,7 +61,7 @@
         <div class="no-admin container">
             <div class="row vh-100 d-flex justify-content-center align-content-center">
                 <div class="text-center">
-                    <h2 class="words">Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices – ChronoSync .</h2>
+                    <h2 class="words">Sorry , it seems you are not registered <br/> as an administrative user for <br/>Life Choices — ChronoSync .</h2>
                     <h2 class="words">Only admins are allowed here .</h2>
                     <router-link to="/"><a class="btn back-btn">Back to Homepage</a></router-link>
                  </div>
